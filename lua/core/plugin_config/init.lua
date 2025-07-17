@@ -1,0 +1,6 @@
+require("core.plugin_config.nvim-tree")
+require("core.plugin_config.treesitter")
+require("core.plugin_config.oxocarbon")
+require("core.plugin_config.lspconfig")
+require("core.plugin_config.lualine")
+
