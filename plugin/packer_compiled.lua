@@ -131,6 +131,11 @@ _G.packer_plugins = {
     path = "/home/splatdem/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["rainbow-delimiters.nvim"] = {
+    loaded = true,
+    path = "/home/splatdem/.local/share/nvim/site/pack/packer/start/rainbow-delimiters.nvim",
+    url = "https://github.com/hiphish/rainbow-delimiters.nvim"
+  },
   rustaceanvim = {
     loaded = true,
     path = "/home/splatdem/.local/share/nvim/site/pack/packer/start/rustaceanvim",
