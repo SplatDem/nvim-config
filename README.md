@@ -19,6 +19,7 @@
  - Alt+w - copy to system buffer
  - Ctrl+y - paste from system buffer
  - Ctrl+i - toggle float term
+ - Alt+q - Telescope find files
  - Ctrl+Mouse wheel - change scale
  - Ctrl+Space in insert mod - show suggestions
 

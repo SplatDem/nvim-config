@@ -17,6 +17,7 @@ vim.opt.smarttab = true
 vim.keymap.set({ "n", "v" }, "<A-w>", '"+y', { noremap = true, silent = true})
 vim.keymap.set({"n", "v", "i"}, "<C-y>", '"+p<CR>', { noremap = true, silent = true})
 vim.keymap.set("n", "<C-i>", ":ToggleTerm direction=float<CR>", { noremap = true, silent = true})
+vim.keymap.set("n", "<A-q>", ":Telescope find_files<CR>", { noremap = true, silent = true})
 
 vim.keymap.set({ "n", "v" }, "<C-ScrollWheelUp>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
 vim.keymap.set({ "n", "v" }, "<C-ScrollWheelDown>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
