@@ -212,6 +212,11 @@ _G.packer_plugins = {
     path = "/home/splatdem/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
   },
+  ["vague.nvim"] = {
+    loaded = true,
+    path = "/home/splatdem/.local/share/nvim/site/pack/packer/start/vague.nvim",
+    url = "https://github.com/vague2k/vague.nvim"
+  },
   ["vscode.nvim"] = {
     loaded = true,
     path = "/home/splatdem/.local/share/nvim/site/pack/packer/start/vscode.nvim",

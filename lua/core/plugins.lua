@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
   use 'mrcjkb/rustaceanvim'
   use 'OmniSharp/omnisharp-vim'
   use 'Mofiqul/vscode.nvim'
+  use 'vague2k/vague.nvim'
   use({
     "L3MON4D3/LuaSnip",
     tag = "v2.*",

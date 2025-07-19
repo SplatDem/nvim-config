@@ -21,7 +21,8 @@
  - Ctrl+i - toggle float term
  - Alt+q - Telescope find files
  - Ctrl+Mouse wheel - change scale
- - Ctrl+Space in insert mod - show suggestions
+ - Ctrl+Space in insert mode - show suggestions
+ - Esc in terminal mode - enter normanl mode
 
 ### Default cmd settings ([config file](./lua/core/keymaps.lua))
  - noswapfile
