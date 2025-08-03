@@ -15,16 +15,17 @@ vim.opt.expandtab = true
 vim.opt.smarttab = true
 
 vim.opt.guifont = "CaskaydiaMono Nerd Font"
+vim.opt.termguicolors = true
 
-vim.keymap.set({ "n", "v" }, "<A-w>", '"+y', { noremap = true, silent = true})
+vim.keymap.set({ "n", "v"}, "<A-w>", '"+y', { noremap = true, silent = true})
 vim.keymap.set({"n", "v", "i"}, "<C-y>", '"+p<CR>', { noremap = true, silent = true})
 vim.keymap.set("n", "<C-i>", ":ToggleTerm direction=float<CR>", { noremap = true, silent = true})
 vim.keymap.set("n", "<A-q>", ":Telescope find_files<CR>", { noremap = true, silent = true})
 vim.keymap.set("t", "<Esc>", [[ <C-\><C-n> ]], {noremap = true, silent = true})
 vim.keymap.set({"n", "i"}, "<A-x>", vim.diagnostic.open_float)
 
-vim.keymap.set({ "n", "v" }, "<C-ScrollWheelUp>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
-vim.keymap.set({ "n", "v" }, "<C-ScrollWheelDown>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
+vim.keymap.set({ "n", "v", "i" }, "<C-ScrollWheelUp>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
+vim.keymap.set({ "n", "v", "i" }, "<C-ScrollWheelDown>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
 
 vim.cmd [[ set noswapfile ]]
 vim.cmd [[ set termguicolors ]]

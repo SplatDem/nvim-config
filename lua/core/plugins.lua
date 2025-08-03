@@ -58,6 +58,13 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.8',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+  use 'nvim-tree/nvim-web-devicons'
+  use ({ 
+    'brenoprata10/nvim-highlight-colors',
+    config = function()
+      require("nvim-highlight-colors").setup()
+    end
+  })
 
   if packer_bootstrap then
     require('packer').sync()
