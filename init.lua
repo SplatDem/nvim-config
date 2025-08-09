@@ -14,6 +14,7 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
+vim.opt.autochdir = true
 
 vim.opt.guifont = "CaskaydiaMono Nerd Font"
 vim.opt.termguicolors = true
@@ -21,51 +22,73 @@ vim.opt.termguicolors = true
 vim.keymap.set({ "n", "v"}, "<A-w>", '"+y', { noremap = true, silent = true})
 vim.keymap.set({"n", "v", "i"}, "<C-y>", '"+p<CR>', { noremap = true, silent = true})
 vim.keymap.set("n", "<C-i>", ":ToggleTerm direction=float<CR>", { noremap = true, silent = true})
-vim.keymap.set("n", "<A-q>", ":Telescope find_files<CR>", { noremap = true, silent = true})
 vim.keymap.set("t", "<Esc>", [[ <C-\><C-n> ]], {noremap = true, silent = true})
 vim.keymap.set({"n", "i"}, "<A-x>", vim.diagnostic.open_float)
+vim.keymap.set({"n", "i"}, "<C-s>", ":w<CR>")
 
 vim.keymap.set({ "n", "v", "i" }, "<C-ScrollWheelUp>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
 vim.keymap.set({ "n", "v", "i" }, "<C-ScrollWheelDown>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
 
 vim.cmd [[ set noswapfile ]]
 vim.cmd [[ set termguicolors ]]
-vim.cmd [[ set autochdir ]]
+-- vim.cmd [[ set autochdir ]]
 
 vim.pack.add({
-  { src = "https://github.com/vague2k/vague.nvim" },
-  { src = 'https://github.com/neovim/nvim-lspconfig' },
+  -- Uncotigorized plugins
   { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
   { src = "https://github.com/p00f/clangd_extensions.nvim" },
   { src = "https://github.com/akinsho/toggleterm.nvim" },
   { src = "https://github.com/mrcjkb/rustaceanvim" },
+  { src = "https://github.com/nvim-telescope/telescope.nvim" },
+  { src = "https://github.com/nvim-lua/plenary.nvim" },
 
+  -- Lsp and cmp
+  { src = 'https://github.com/neovim/nvim-lspconfig' },
   { src = "https://github.com/hrsh7th/nvim-cmp" },
+  { src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
   { src = "https://github.com/hrsh7th/cmp-buffer" },
-  { src = "https://github.com/hrsh7th/cmp-path" },
---   { src = "https://github.com/hrsh7th/cmp-buffer" },
---   { src = "https://github.com/hrsh7th/cmp-buffer" },
---   { src = "https://github.com/hrsh7th/cmp-buffer" },
---   { src = "https://github.com/hrsh7th/cmp-buffer" },
-  { src = "https://github.com/L3MON4D3/LuaSnip" },
+  { src = 'https://github.com/quangnguyen30192/cmp-nvim-ultisnips' },
+  { src = 'https://github.com/hrsh7th/cmp-nvim-lua' },
+  { src = 'https://github.com/octaltree/cmp-look' },
+  { src = 'https://github.com/hrsh7th/cmp-path' }, 
+  { src = 'https://github.com/hrsh7th/cmp-calc' },
+  { src = 'https://github.com/f3fora/cmp-spell' }, 
+  { src = 'https://github.com/hrsh7th/cmp-emoji'},
+  { src = "https://github.com/L3MON4D3/LuaSnip", tag = "V2.*" },
   { src = "https://github.com/tzachar/cmp-tabnine" },
 
+  -- Appearens
   { src = "https://github.com/nvim-lualine/lualine.nvim" },
   { src = "https://github.com/nvim-tree/nvim-web-devicons" },
   { src = "https://github.com/brenoprata10/nvim-highlight-colors" },
+  { src = "https://github.com/yorumicolors/yorumi.nvim" },
+  { src = "https://github.com/vague2k/vague.nvim" },
 })
 
--- vim.cmd [[ colorscheme vague ]]
+vim.cmd [[ colorscheme yorumi ]]
 
 require("nvim-highlight-colors").setup()
+require("toggleterm").setup()
+
+require("lspconfig").clangd.setup {
+  cmd = { "clangd", "--compile-commands-dir=/home/splatdem/Public/ucima" },
+}
+
+vim.lsp.enable({'clangd', 'tinymist', "rust-analyzer"})
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
     component_separators = { left = '|', right = '|'},
-    section_separators = { left = '', right = ''},
-    -- section_separators = { left = '', right = ''},
+    -- section_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
     disabled_filetypes = {
       statusline = {},
       winbar = {},
