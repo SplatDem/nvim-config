@@ -14,7 +14,7 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
-vim.opt.autochdir = true
+-- vim.opt.autochdir = true
 
 vim.opt.guifont = "CaskaydiaMono Nerd Font"
 vim.opt.termguicolors = true
@@ -25,6 +25,7 @@ vim.keymap.set("n", "<C-i>", ":ToggleTerm direction=float<CR>", { noremap = true
 vim.keymap.set("t", "<Esc>", [[ <C-\><C-n> ]], {noremap = true, silent = true})
 vim.keymap.set({"n", "i"}, "<A-x>", vim.diagnostic.open_float)
 vim.keymap.set({"n", "i"}, "<C-s>", ":w<CR>")
+vim.keymap.set({"n"}, "<A-m>", ":Neotree toggle<CR>")
 
 vim.keymap.set({ "n", "v", "i" }, "<C-ScrollWheelUp>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
 vim.keymap.set({ "n", "v", "i" }, "<C-ScrollWheelDown>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
@@ -41,6 +42,10 @@ vim.pack.add({
   { src = "https://github.com/mrcjkb/rustaceanvim" },
   { src = "https://github.com/nvim-telescope/telescope.nvim" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+  { src = "https://github.com/3rd/image.nvim" },
+  { src = "https://github.com/nvim-neo-tree/neo-tree.nvim" },
+  { src = "https://github.com/MunifTanjim/nui.nvim" },
 
   -- Lsp and cmp
   { src = 'https://github.com/neovim/nvim-lspconfig' },
@@ -71,7 +76,8 @@ require("nvim-highlight-colors").setup()
 require("toggleterm").setup()
 
 require("lspconfig").clangd.setup {
-  cmd = { "clangd", "--compile-commands-dir=/home/splatdem/Public/ucima" },
+  -- cmd = { "clangd", "--compile-commands-dir=/home/splatdem/Public/ucima" },
+  cmd = { "clangd", "--enable-config" },
 }
 
 vim.lsp.enable({'clangd', 'tinymist', "rust-analyzer"})
