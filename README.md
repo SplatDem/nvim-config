@@ -1,3 +1,5 @@
+![0.12 nightly version](https://github.com/SplatDem/nvim-config/tree/0.12-nightly)
+
 ![nvim-config](./nvim-config.png)
 > This is a neovide btw
 
