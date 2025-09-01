@@ -68,12 +68,17 @@ vim.pack.add({
   { src = "https://github.com/brenoprata10/nvim-highlight-colors" },
   { src = "https://github.com/yorumicolors/yorumi.nvim" },
   { src = "https://github.com/vague2k/vague.nvim" },
+  { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
+  { src = "https://github.com/Mofiqul/vscode.nvim" },
 })
 
-vim.cmd [[ colorscheme yorumi ]]
+vim.cmd [[ colorscheme vscode ]]
 
 require("nvim-highlight-colors").setup()
 require("toggleterm").setup()
+require("ibl").setup {
+    indent = { char = "•" },
+}
 
 require("lspconfig").clangd.setup {
   -- cmd = { "clangd", "--compile-commands-dir=/home/splatdem/Public/ucima" },
